@@ -606,7 +606,12 @@ async def hold(
             "why_len": len(why_remembered or ""),
         },
     )
-
+@mcp.tool()
+    async def clock() -> str:
+        """返回当前时间（Asia/Taipei, UTC+8）。"""
+        from datetime import datetime, timezone, timedelta
+        now = datetime.now(timezone(timedelta(hours=8)))
+        return now.strftime("%Y-%m-%d %H:%M:%S")
 
 @mcp.tool()
 async def grow(content: str) -> str:
