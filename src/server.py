@@ -607,7 +607,7 @@ async def hold(
         },
     )
 @mcp.tool()
-    async def clock() -> str:
+async def clock() -> str:
         """返回当前时间（Asia/Taipei, UTC+8）。"""
         from datetime import datetime, timezone, timedelta
         now = datetime.now(timezone(timedelta(hours=8)))
